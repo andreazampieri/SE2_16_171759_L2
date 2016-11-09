@@ -7,11 +7,12 @@ var stuff = {
 	names:["Chair","Candies","Pens"], 
 	quantities:[1,5,2],
 	addItem : function(name,quantity){
-		if((i=names.indexof(name))!=-1){
-			quantities[i] += quantity;
+		i = this.names.indexOf(name);
+		if(i!=-1){
+			this.quantities[i] += quantity;
 		}else{
-			names.push(name);
-			quantities.push(quantity);
+			this.names.push(name);
+			this.quantities.push(quantity);
 		}
 	}
 };
@@ -28,12 +29,22 @@ function displayTable(){
 		newcell.innerHTML=stuff.quantities[i];
 	}
 	table.insertRow(0);
-	for(var i=0;i<stuff.names.length;i++){
-		newcell=table.rows[0].insertCell(i);
-		newcell.innerHTML=stuff.names[i];
+	for(var j=0;j<stuff.names.length;j++){
+		newcell=table.rows[0].insertCell(j);
+		newcell.innerHTML=stuff.names[j];
 	}
 }
 
 function addItems(){
+	var item=document.getElementById("item");
+	var quantity=document.getElementById("quantity");
 
+}
+
+function isInt(x){
+	return !isNaN(parseInt(x));
+}
+
+function isPositiveInt(x){
+	return isInt(x) && parseInt(x)>0;
 }
