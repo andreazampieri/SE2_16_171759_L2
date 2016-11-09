@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js">
+	</script>
+	<meta charset="utf-8">
+	<title>Stockings</title>
+</head>
+<body>
+	<header>
+		<h1>Your Stuff</h1>
+	</header>
+	<table id="table">
+	</table>
+	
+	<script type="text/javascript">
+		displayTable();
+	</script>
+
+	<button onclick="toggle_display()" >Order Stuff</button>
+	<section id="insertform" style="display:none;">
+		Insert the name of the prod: <input type="text" id="item"><br>
+		Insert the quantity: <input type="number" id="quantity"><br>
+		<button onclick="">Order!</button>
+	</section>
+</body>
+</html>

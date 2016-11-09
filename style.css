@@ -1,0 +1,11 @@
+#insertform {
+}
+
+#table{
+	border-collapse: collapse;
+}
+
+td {
+	border:2px solid;
+
+}
