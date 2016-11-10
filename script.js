@@ -17,12 +17,8 @@ var stuff = {
 	}
 };
 
-function displayTable(){
+function fillTable(){
 	var table = document.getElementById("table");
-	var length = table.rows.length;
-	for(var i=0;i<length;i++){
-		table.deleteRow(0);
-	}
 	table.insertRow(0);
 	for(var i=0;i<stuff.quantities.length;i++){
 		newcell=table.rows[0].insertCell(i);
@@ -38,7 +34,12 @@ function displayTable(){
 function addItems(){
 	var item=document.getElementById("item");
 	var quantity=document.getElementById("quantity");
+	if(!isPositiveInt(quantity)){
+		document.getElementById("error").innerHTML = "The quantity must be a positive integer";
+	}
+	else{
 
+	}
 }
 
 function isInt(x){
@@ -47,4 +48,8 @@ function isInt(x){
 
 function isPositiveInt(x){
 	return isInt(x) && parseInt(x)>0;
+}
+
+function refreshTableContent(){
+	var table = document.getElementById("table");
 }

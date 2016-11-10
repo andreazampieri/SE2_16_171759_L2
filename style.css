@@ -2,11 +2,16 @@
 	
 }
 
-#table{
+#table {
 	border-collapse: collapse;
 }
 
 td {
 	border:2px solid;
 
+}
+
+#error {
+	color: red;
+	font-style: bold;
 }
