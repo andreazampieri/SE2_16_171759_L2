@@ -6,7 +6,7 @@ function toggle_display() {
 var stuff = {
 	names:["Chair","Candies","Pens"], 
 	quantities:[1,5,2],
-	addItem : function(name,quantity){
+	addItems : function(name,quantity){
 		i = this.names.indexOf(name);
 		if(i!=-1){
 			this.quantities[i] += quantity;
@@ -34,11 +34,16 @@ function fillTable(){
 function addItems(){
 	var item=document.getElementById("item");
 	var quantity=document.getElementById("quantity");
-	if(!isPositiveInt(quantity)){
-		document.getElementById("error").innerHTML = "The quantity must be a positive integer";
+	var error = document.getElementById("error");
+	if(!isPositiveInt(quantity.value) || item.value == ""){
+		error.innerHTML = "Insert a name and a positive integer!";
 	}
 	else{
-
+		error.innerHTML = "";
+		stuff.addItems(item.value,parseInt(quantity.value));
+		fillTable();
+		var form = document.getElementById("insertform");
+		form.style.display = "none";
 	}
 }
 
