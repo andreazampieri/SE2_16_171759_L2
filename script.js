@@ -68,7 +68,10 @@ function refreshTableContent(){
 		var namesrow = table.rows[0];
 		var quantityrow = table.rows[1];
 		var length = namesrow.length;
-
+		var newname = namesrow.insertCell(namesrow.cells.length);
+		var newquantity = quantityrow.insertCell(quantityrow.cells.length);
+		newname.innerHTML = stuff.names[stuff.names.length-1];
+		newquantity.innerHTML = stuff.quantities[stuff.quantities.length-1];
 	}
 	else{
 		alert("Something went wrong",table_length);
