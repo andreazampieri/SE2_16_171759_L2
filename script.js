@@ -41,7 +41,6 @@ function addItems(){
 	else{
 		error.innerHTML = "";
 		stuff.addItems(item.value,parseInt(quantity.value));
-		fillTable();
 		var form = document.getElementById("insertform");
 		form.style.display = "none";
 		refreshTableContent();
@@ -58,20 +57,20 @@ function isPositiveInt(x){
 
 function refreshTableContent(){
 	var table = document.getElementById("table");
-	var table_length = table.rows.length;
+	var table_length = table.rows[0].cells.length;
 	if (table_length == stuff.names.length) {
 		var row = table.rows[1];
 		for(var i=0;i<stuff.quantities.length;i++){
-			row.cell[i].innerHTML = stuff.quantities[i];
+			row.cells[i].innerHTML = stuff.quantities[i];
 		}
 	} 
 	else if(table_length == stuff.names.length-1) {
 		var namesrow = table.rows[0];
 		var quantityrow = table.rows[1];
 		var length = namesrow.length;
-		
+
 	}
 	else{
-		alert("Something went wrong");
+		alert("Something went wrong",table_length);
 	}
 }
