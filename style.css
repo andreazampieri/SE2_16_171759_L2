@@ -11,7 +11,7 @@ td {
 
 }
 
-#error {
+.errorMessage {
 	color: red;
-	font-style: bold;
+	font-weight: bold;
 }

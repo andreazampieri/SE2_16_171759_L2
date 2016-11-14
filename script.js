@@ -1,6 +1,10 @@
 function toggle_display() {
 	var form = document.getElementById("insertform");
 	form.style.display = form.style.display=="none" ? "block" : "none";
+	var item = document.getElementById("item");
+	var quantity = document.getElementById("quantity");
+	item.value = "";
+	quantity.value = "";
 }
 
 var stuff = {
@@ -25,7 +29,7 @@ var stuff = {
 	}
 };
 
-function fillTable(){
+function fillContent(){
 	var table = document.getElementById("table");
 	table.insertRow(0);
 	for(var i=0;i<stuff.quantities.length;i++){
@@ -37,21 +41,31 @@ function fillTable(){
 		newcell=table.rows[0].insertCell(j);
 		newcell.innerHTML=stuff.names[j];
 	}
+
+	var capacity = document.getElementById("capacity");
+	capacity.value = stuff.capacity;
 }
 
 function addItems(){
 	var item=document.getElementById("item");
 	var quantity=document.getElementById("quantity");
-	var error = document.getElementById("error");
+	var error = document.getElementById("errorForm");
 	if(!isPositiveInt(quantity.value) || item.value == ""){
-		error.innerHTML = "Insert a name and a positive integer!";
+		error.style.display = "block";
 	}
 	else{
-		error.innerHTML = "";
+		error.style.display = "none";
 		stuff.addItems(item.value,parseInt(quantity.value));
 		var form = document.getElementById("insertform");
 		form.style.display = "none";
 		refreshTableContent();
+		var capacity = document.getElementById("capacity");
+		if(isPositiveInt(capacity.value)){
+			stuff.capacity = parseInt(capacity.value);
+		}
+		if(stuff.capacity < stuff.numberOfStuff()){
+			alert("Capacity exceeded!");
+		}
 	}
 }
 
@@ -87,5 +101,12 @@ function refreshTableContent(){
 }
 
 function checkCapacity(){
+	var capacity = document.getElementById("capacity");
+	
+}
 
+function checkPosIntValue(idval,iderr){
+	var elem = document.getElementById(idval);
+	var error = document.getElementById(iderr)
+	error.style.display = isPositiveInt(elem.value)?"none":"block";
 }

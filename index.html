@@ -5,7 +5,7 @@
 	<script src="script.js">
 	</script>
 	<meta charset="utf-8">
-	<title>Stockings</title>
+	<title>Warehouse</title>
 </head>
 <body>
 	<header>
@@ -13,17 +13,23 @@
 	</header>
 	<table id="table">
 	</table>
-	
-	<script type="text/javascript">
-		fillTable();
-	</script>
+	<br>
+
+	<section id="capacitylimit">
+		Limit of stuff in the warehouse: <input type="number" id="capacity" onchange="checkPosIntValue('capacity','errorQuantity')" />
+		<p class="errorMessage" style="display: none" id="errorQuantity">The quantity must be a positive integer</p> 
+	</section>
 
 	<button onclick="toggle_display()" >Order Stuff</button>
 	<section id="insertform" style="display:none;">
 		Insert the name of the prod: <input type="text" id="item"><br>
-		Insert the quantity: <input type="number" id="quantity"><br>
+		Insert the quantity: <input type="number" id="quantity" onchange="checkPosIntValue('quantity','errorForm')"><br>
 		<button onclick="addItems()">Order!</button><br>
-		<p id="error"></p>
+		<p class="errorMessage" id="errorForm" style="display:none">Insert a name and a positive integer!</p>
 	</section>
+
+	<script type="text/javascript">
+		fillContent();
+	</script>
 </body>
 </html>
