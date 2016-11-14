@@ -6,6 +6,7 @@ function toggle_display() {
 var stuff = {
 	names:["Chair","Candies","Pens"], 
 	quantities:[1,5,2],
+	capacity: 42,
 	addItems : function(name,quantity){
 		i = this.names.indexOf(name);
 		if(i!=-1){
@@ -14,6 +15,13 @@ var stuff = {
 			this.names.push(name);
 			this.quantities.push(quantity);
 		}
+	},
+	numberOfStuff : function(){
+		var sum = 0;
+		for(var i=0;i<this.quantities.length;i++){
+			sum += this.quantities[i];
+		}
+		return sum;
 	}
 };
 
@@ -76,4 +84,8 @@ function refreshTableContent(){
 	else{
 		alert("Something went wrong",table_length);
 	}
+}
+
+function checkCapacity(){
+
 }
