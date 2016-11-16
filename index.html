@@ -16,15 +16,15 @@
 	<br>
 
 	<section id="capacitylimit">
-		Limit of stuff in the warehouse: <input type="number" id="capacity" onchange="checkPosIntValue('capacity','errorQuantity')" />
+		Limit of stuff in the warehouse: <input type="number" id="capacity" onchange="checkPosIntValue('capacity','errorQuantity')" /> <button onclick="setCapacityValue()">Set capacity</button>
 		<p class="errorMessage" style="display: none" id="errorQuantity">The quantity must be a positive integer</p> 
 	</section>
 
-	<button onclick="toggle_display()" >Order Stuff</button>
+	<button onclick="toggle_display();setCapacityValue()" >Order Stuff</button>
 	<section id="insertform" style="display:none;">
 		Insert the name of the prod: <input type="text" id="item"><br>
 		Insert the quantity: <input type="number" id="quantity" onchange="checkPosIntValue('quantity','errorForm')"><br>
-		<button onclick="addItems()">Order!</button><br>
+		<button onclick="setCapacityValue();addItems()">Order!</button><br>
 		<p class="errorMessage" id="errorForm" style="display:none">Insert a name and a positive integer!</p>
 	</section>
 
