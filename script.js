@@ -168,10 +168,15 @@ function checkPosIntValue(idval,iderr){
 /**
  * Checks if the capacity to update is a valid value
  * if so, the capacity is updated
+ * 
+ * if the capacity is exceeded, an error message is shown
  */
 function setCapacityValue(){
 	var capacity = document.getElementById("capacity");
 	if(isPositiveInt(capacity.value)){
 		stuff.capacity = parseInt(capacity.value);
+	}
+	if(stuff.capacity < stuff.numberOfStuff()){
+			alert("Capacity exceeded!");
 	}
 }
